@@ -1,16 +1,11 @@
-import { Stack } from 'expo-router';
-import React, { useEffect } from 'react';
-import { initDb } from '../lib/db';
-
+import { Tabs } from "expo-router";
 export default function RootLayout() {
-  useEffect(() => { initDb(); }, []);
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: { backgroundColor: '#0c0c0c' },
-        headerTintColor: '#f6c453',
-        headerTitleStyle: { fontWeight: '800' },
-      }}
-    />
+    <Tabs screenOptions={{ headerStyle:{ backgroundColor:"#111" }, headerTintColor:"#fff" }}>
+      <Tabs.Screen name="spirits/index" options={{ title: "Spirits" }} />
+      <Tabs.Screen name="sweets/index"  options={{ title: "Sweets" }} />
+      <Tabs.Screen name="sausages/index" options={{ title: "Sausages" }} />
+      <Tabs.Screen name="streets/index" options={{ title: "Streets" }} />
+    </Tabs>
   );
 }
